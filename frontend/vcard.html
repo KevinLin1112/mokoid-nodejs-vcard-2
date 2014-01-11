@@ -1,32 +1,50 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bootstrap 101 Template</title>
+    <title>VCard Service</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
   </head>
   <script id='vcardTemplate' type='text/x-jquery-tmpl'>
-      <h2>${Name}</h2>
-      <p>${ReleaseYear}</p>
+    <div class="col-xs-12 col-md-6">
+        <div class="alert alert-danger">
+          <h2>${name}</h2>
+          <img class='img-circle' src='uploads/${nickname}.jpg' width='96' height='96' data-toggle='photo' data-nickname="${nickname}" />
+          <span class="label label-warning">${tel}</span>
+        </div>
+    </div>
   </script>
   <body>
-    <h1>Cards</h1>
-    <div id="userList"></div>
+    <div class="container">
+        <div class="page-header">
+            <h1>VCard Service</h1>
+        </div>
+        <div id="userList"></div>
+    </div>
 
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="vendor/jquery-tmpl/jquery.tmpl.min.js"></script>
     <script>
     $(document).ready(function () {
-      var vcard = [
-          { Name: "The Red Violin", ReleaseYear: "1998" },
-          { Name: "Eyes Wide Shut", ReleaseYear: "1999" },
-          { Name: "The Inheritance", ReleaseYear: "1976" }
-        ];
+      var vcard = [{
+            "nickname":"hank",
+            "name":"Hank Wang",
+            "tel":12345
+        },
+        {
+            "nickname":"jollen",
+            "name":"Jollen Chen",
+            "tel":54321
+        },
+        {
+            "nickname":"peggy",
+            "name":"Peggy Wang",
+            "tel":98765
+        }];
 
-      $("#vcardTemplate").tmpl(vcard)
-          .appendTo( "#userList" );
+      $("#vcardTemplate").tmpl(vcard).appendTo( "#userList" );
     });
     </script>
   </body>
