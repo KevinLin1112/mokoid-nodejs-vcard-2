@@ -42,7 +42,22 @@
             },
             complete: function (textStatus, jqXHR) {
                 $("button[data-toggle='upload-photo']").on('click', function() {
-                    console.log('start upload ' + $(this).data('nickname') + ' photo.');
+                    var nickname = $(this).data('nickname');
+                    var data = new FormData();
+                    data.append('file', $('#photo-' + nickname)[0].files[0]);
+
+                    $.ajax({
+                            url: '/1/user/' + nickname + '/photo',
+                            data: data,
+                            cache: false,
+                            contentType: false,
+                            processData: false,
+                            type: 'POST',
+                            success: function() {
+                                $("img[data-nickname='" + nickname + "'").prop('src', '/uploads/' + nickname + '.jpg');
+                                console.log('photo upload success');
+                            }
+                    });
                 });
             }
         });

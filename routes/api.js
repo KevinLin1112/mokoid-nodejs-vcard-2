@@ -46,3 +46,22 @@ exports.update = function(req, res){
 exports.delete = function(req, res){
 	res.end();
 };
+
+exports.upload = function(req, res) {
+    var fs = require('fs');
+    var path = require('path');
+    var filename = req.params.nickname + '.jpg';
+    var type = req.params.type;   // 'photo' or 'voice'
+
+    fs.readFile(req.files.file.path, function (err, data) {
+        var newPath = path.join(__dirname, '../frontend/', 'uploads',  filename);
+
+        fs.writeFile(newPath, data, function (err) {
+            if (err) {
+                res.json({status: 'error', message: err});
+            } else {
+                res.json({status: 'ok'});
+            }
+        });
+    });
+};
