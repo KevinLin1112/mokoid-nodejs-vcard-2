@@ -31,8 +31,8 @@ if ('development' == app.get('env')) {
 }
 
 // REST API
-app.post('/1/user', api.create);
-app.get('/1/user/:nickname', api.read);
+app.post('/1/user/:nickname', api.create);
+app.get('/1/user', api.read);
 app.put('/1/user/:nickname', api.update);
 app.delete('/1/user/:nickname', api.delete);
 
