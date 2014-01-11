@@ -8,15 +8,13 @@
   </head>
   <script id='vcardTemplate' type='text/x-jquery-tmpl'>
     <div class="col-xs-12 col-md-6">
-        <div class="row">
-            <div class="alert alert-danger">
-                <h2>${name}</h2>
-                <img class='img-circle' src='uploads/${nickname}.jpg' width='96' height='96' data-toggle='photo' data-nickname="${nickname}" />
-                <span class="label label-warning">Tel: ${tel}</span>
+        <div class="alert alert-danger">
+            <h2>${name}</h2>
+            <img class='img-circle' src='uploads/${nickname}.jpg' width='96' height='96' data-toggle='photo' data-nickname="${nickname}" />
+            <span class="label label-warning">Tel: ${tel}</span>
 
-                <p><input type='file' class="btn btn-large btn-info" name='filename' id="photo-${nickname}">
-                <p><button class="btn btn-large btn-info" data-toggle='upload-photo' data-nickname="${nickname}">Upload Photo</button></p>
-            </div>
+            <p><input type='file' class="btn btn-large btn-info" name='filename' id="photo-${nickname}">
+            <p><button class="btn btn-large btn-info" data-toggle='upload-photo' data-nickname="${nickname}">Upload Photo</button></p>
         </div>
     </div>
   </script>
@@ -25,7 +23,9 @@
         <div class="page-header">
             <h1>VCard Service</h1>
         </div>
-        <div id="userList"></div>
+        <div class="row">
+            <div id="userList"></div>
+        </div>
     </div>
 
     <script src="vendor/jquery/jquery.min.js"></script>
