@@ -2,13 +2,10 @@ nodejs-vcard
 ====
 
 
-## GruntJS - Task Runner(http://gruntjs.com)
-```
-npm install -g grunt-cli
-npm install grunt-exec
-```
+## Exprerss - NodeJS web framework (http://expressjs.com)
 
-## Bower (http://bower.io)
+
+## Bower - Package manager for web (http://bower.io)
 
 ```
 bower init
@@ -21,4 +18,11 @@ bower install bootstrap --save
 {
 	"directory":"frontend/vendor"
 }
+```
+
+## GruntJS - JavaScript Task Runner (http://gruntjs.com)
+```
+npm install -g grunt-cli
+npm install grunt
+npm install grunt-exec
 ```
