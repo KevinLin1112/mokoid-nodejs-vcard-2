@@ -8,10 +8,15 @@
   </head>
   <script id='vcardTemplate' type='text/x-jquery-tmpl'>
     <div class="col-xs-12 col-md-6">
-        <div class="alert alert-danger">
-          <h2>${name}</h2>
-          <img class='img-circle' src='uploads/${nickname}.jpg' width='96' height='96' data-toggle='photo' data-nickname="${nickname}" />
-          <span class="label label-warning">Tel: ${tel}</span>
+        <div class="row">
+            <div class="alert alert-danger">
+                <h2>${name}</h2>
+                <img class='img-circle' src='uploads/${nickname}.jpg' width='96' height='96' data-toggle='photo' data-nickname="${nickname}" />
+                <span class="label label-warning">Tel: ${tel}</span>
+
+                <p><input type='file' class="btn btn-large btn-info" name='filename' id="photo-${nickname}">
+                <p><button class="btn btn-large btn-info" data-toggle='upload-photo' data-nickname="${nickname}">Upload Photo</button></p>
+            </div>
         </div>
     </div>
   </script>
@@ -36,7 +41,9 @@
                 $("#vcardTemplate").tmpl(data).appendTo( "#userList" );
             },
             complete: function (textStatus, jqXHR) {
-
+                $("button[data-toggle='upload-photo']").on('click', function() {
+                    console.log('start upload ' + $(this).data('nickname') + ' photo.');
+                });
             }
         });
     });
