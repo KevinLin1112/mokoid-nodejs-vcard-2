@@ -1,6 +1,10 @@
 nodejs-vcard
 ====
 
+- NodeJS
+- ExpressJS
+- GruntJS
+- Bower
 
 ## Exprerss - NodeJS web framework (http://expressjs.com)
 
