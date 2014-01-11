@@ -11,7 +11,7 @@
         <div class="alert alert-danger">
           <h2>${name}</h2>
           <img class='img-circle' src='uploads/${nickname}.jpg' width='96' height='96' data-toggle='photo' data-nickname="${nickname}" />
-          <span class="label label-warning">${tel}</span>
+          <span class="label label-warning">Tel: ${tel}</span>
         </div>
     </div>
   </script>
@@ -28,23 +28,17 @@
     <script src="vendor/jquery-tmpl/jquery.tmpl.min.js"></script>
     <script>
     $(document).ready(function () {
-      var vcard = [{
-            "nickname":"hank",
-            "name":"Hank Wang",
-            "tel":12345
-        },
-        {
-            "nickname":"jollen",
-            "name":"Jollen Chen",
-            "tel":54321
-        },
-        {
-            "nickname":"peggy",
-            "name":"Peggy Wang",
-            "tel":98765
-        }];
+        $.ajax({
+            url: '/1/user',
+            type: 'GET',
+            dataType: "json",
+            success: function (data, textStatus, jqXHR) {
+                $("#vcardTemplate").tmpl(data).appendTo( "#userList" );
+            },
+            complete: function (textStatus, jqXHR) {
 
-      $("#vcardTemplate").tmpl(vcard).appendTo( "#userList" );
+            }
+        });
     });
     </script>
   </body>

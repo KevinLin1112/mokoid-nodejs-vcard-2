@@ -1,10 +1,16 @@
-var vcard = [];
+var vcard;
+var fs = require('fs');
+var path = require('path');
+
+fs.readFile(path.join(__dirname, '/db.json'), function(err, data) {
+    vcard = JSON.parse(data);
+});
 
 exports.create = function(req, res){
 	var person = {
-			nickname: "",
-			name: "",
-			tel: ""
+		nickname: "",
+		name: "",
+		tel: ""
 	};
 
 	person.nickname = req.params.nickname;
@@ -19,7 +25,7 @@ exports.create = function(req, res){
 
 exports.read = function(req, res){
 	res.send(vcard);
-	res.end();	
+	res.end();
 };
 
 exports.update = function(req, res){
